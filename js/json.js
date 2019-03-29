@@ -1,0 +1,22 @@
+"use strict";
+
+
+let response1 = '{"results":[{"gender":"female","name":{"title":"mrs","first":"gül","last":"sepetçi"},"location":{"street":"5740 abanoz sk","city":"sivas","state":"bursa","postcode":45614,"coordinates":{"latitude":"77.3397","longitude":"42.0174"},"timezone":{"offset":"-6:00","description":"Central Time (US & Canada), Mexico City"}},"email":"gül.sepetçi@example.com","login":{"uuid":"7b5396b3-62c4-46fd-9893-9bc47bd7108c","username":"bluemeercat739","password":"marble","salt":"jWtA91tG","md5":"be4367b5bfa7e486d3421c713bd7329e","sha1":"e0d2486486bfedf8159536b3d864cddd13f57d5b","sha256":"4520e729f09addef6c0c6c22b9b01a098d96bc0759e70e941440af9fb1231f1e"},"dob":{"date":"1986-01-23T02:34:21Z","age":33},"registered":{"date":"2006-05-01T02:06:09Z","age":12},"phone":"(784)-005-8786","cell":"(517)-656-8983","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/48.jpg","medium":"https://randomuser.me/api/portraits/med/women/48.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/48.jpg"},"nat":"TR"}],"info":{"seed":"4f2106344000ea29","results":1,"page":1,"version":"1.2"}}';
+let response2 = '{"results":[{"gender":"female","name":{"title":"mrs","first":"ellen","last":"powell"},"location":{"street":"7922 boghall road","city":"carrigaline","state":"carlow","postcode":59215,"coordinates":{"latitude":"24.1586","longitude":"107.5984"},"timezone":{"offset":"-8:00","description":"Pacific Time (US & Canada)"}},"email":"ellen.powell@example.com","login":{"uuid":"5b52c030-8cd6-4d38-8799-ad0646b03fa6","username":"purplemouse876","password":"masters","salt":"X1yZmIcB","md5":"4219d897b4e3be6b0df3dde099028bf7","sha1":"5bd68f0715e958fbfb1a82cc6d65005213592e9f","sha256":"5f5d25ba272104f0d87ddd9888f3c771ca91f7a73b0f719c79ca53ca2ace87c7"},"dob":{"date":"1945-04-03T23:51:36Z","age":73},"registered":{"date":"2008-09-05T14:37:30Z","age":10},"phone":"031-702-9648","cell":"081-235-3793","id":{"name":"PPS","value":"3289951T"},"picture":{"large":"https://randomuser.me/api/portraits/women/26.jpg","medium":"https://randomuser.me/api/portraits/med/women/26.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/26.jpg"},"nat":"IE"}],"info":{"seed":"37c0a7694c7c4d57","results":1,"page":1,"version":"1.2"}}';
+let response3 = '{"results":[{"gender":"female","name":{"title":"ms","first":"ava","last":"denys"},"location":{"street":"4662 west ave","city":"richmond","state":"nunavut","postcode":"Y6E 2C3","coordinates":{"latitude":"-66.6940","longitude":"62.8967"},"timezone":{"offset":"+3:30","description":"Tehran"}},"email":"ava.denys@example.com","login":{"uuid":"34c97fb9-e290-42f5-943c-c4571df223a9","username":"silverpeacock380","password":"camel","salt":"kMck0w2r","md5":"c27cc90f050efaa1f7645418fa68ad67","sha1":"bbe0aa8eeb5550e7c529900cb7bb5bd3462290a8","sha256":"8b21e7b2c43e3631506f475c1e795a927c1e845f69c8e68a27826bdb872b8cb0"},"dob":{"date":"1962-10-16T10:52:47Z","age":56},"registered":{"date":"2009-10-25T03:57:11Z","age":9},"phone":"891-126-5843","cell":"282-433-8505","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/7.jpg","medium":"https://randomuser.me/api/portraits/med/women/7.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/7.jpg"},"nat":"CA"}],"info":{"seed":"40a5e4a1d72755b7","results":1,"page":1,"version":"1.2"}}';
+
+let user1 = JSON.parse(response1);
+let user2 = JSON.parse(response2);
+let user3 = JSON.parse(response3);
+
+let imageElements = document.querySelectorAll(".user-card .card-img-top");
+imageElements[0].setAttribute("src", user1.results[0].picture.large);
+imageElements[1].setAttribute("src", user2.results[0].picture.large);
+imageElements[2].setAttribute("src", user3.results[0].picture.large);
+
+let titleElements = document.querySelectorAll(".user-card .card-title")
+titleElements[0].innerHTML = user1.results[0].name.title + ". " +user1.results[0].name.first + " " + user1.results[0].name.last;
+titleElements[1].innerHTML = user2.results[0].name.title + ". " +user2.results[0].name.first + " " + user2.results[0].name.last;
+titleElements[2].innerHTML = user3.results[0].name.title + ". " +user3.results[0].name.first + " " + user3.results[0].name.last;
+console.log(user1);
+console.log();
